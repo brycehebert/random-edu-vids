@@ -108,3 +108,6 @@ dist
 
 #ignore dev.js
 dev.js
+
+#ignore the json files in the youtube api folder
+youtube-api/*.json

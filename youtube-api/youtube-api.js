@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: __dirname + `/../.env` });
 const { channels } = require("./channels");
 const fs = require("fs");
 
@@ -18,7 +18,6 @@ Retrieve all uploads from the given playlist
 Returns an array of all resources, each element of the array represents an upload.*/
 const getAllUploads = async (playlist) => {
   let items = []; //Will hold all the the returned resources
-  let response;
   let nextPage; //Holds the next page token
   //The data interested in for each resource
   let fields = "nextPageToken,items(snippet(publishedAt,title,thumbnails,resourceId(videoId)))";
@@ -26,7 +25,7 @@ const getAllUploads = async (playlist) => {
   do {
     try {
       //Make call to youtube api
-      response = await youtube.playlistItems.list({
+      let response = await youtube.playlistItems.list({
         playlistId: playlist,
         part: "snippet",
         pageToken: nextPage,
@@ -48,31 +47,35 @@ const getAllUploads = async (playlist) => {
 Example of a single element from the returned array:
 {
   snippet: {
-    publishedAt: datetime
-    title: string,
-    thumbnails: {
+    publishedAt: datetime  - The time at which video was published
+    title: string,  - The title of the video
+    thumbnails: {  - Object containing info about various available thumbnail images
       default: {
-        url: string,
-        width: integer,
-        height: integer
+        url: string,  - The URL of the image
+        width: integer,  - Width of the image
+        height: integer  - Height of the image
       },
-      (medium, high, standard, maxres) - same structure as default resolution obj above),
+      (medium, high, standard, maxres) - same structure as default resolution obj above,
     },
     resourceId: {
-      videoId: string
+      videoId: string  -The youtube videoId of the video
     }
   }
 }
 *******************************************************/
 
 //Retrieve the playlist items from the provided ChannelID and write the result to a json file
-const writeNamedUploads = (channelName) => {
+const getAndWritePlaylist = (channelName) => {
   getAllUploads(channels[channelName].uploads)
     .then((res) => {
-      console.log(`Completed. Returned ${res.length} items.`);
-      fs.writeFileSync(`${channelName}-uploads.json`, JSON.stringify(res));
+      writePlaylist(channelName, res);
     })
     .catch((err) => console.log(err));
 };
 
-//writeNamedUploads("cgpgrey");
+//Write the given playlist to a json file. Use name to name the file name-uploads.json
+const writePlaylist = (name, playlist) => {
+  fs.writeFileSync(`${__dirname}/${name}-uploads.json`, JSON.stringify(playlist));
+}
+
+getAndWritePlaylist("cgpgrey");

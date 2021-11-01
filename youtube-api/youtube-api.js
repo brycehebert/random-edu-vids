@@ -76,6 +76,6 @@ const getAndWritePlaylist = (channelName) => {
 //Write the given playlist to a json file. Use name to name the file name-uploads.json
 const writePlaylist = (name, playlist) => {
   fs.writeFileSync(`${__dirname}/${name}-uploads.json`, JSON.stringify(playlist));
-}
+};
 
 getAndWritePlaylist("cgpgrey");

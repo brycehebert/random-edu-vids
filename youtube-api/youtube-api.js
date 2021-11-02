@@ -20,7 +20,7 @@ const getAllUploads = async (playlist) => {
   let items = []; //Will hold all the the returned resources
   let nextPage; //Holds the next page token
   //The data interested in for each resource
-  let fields = "nextPageToken,items(snippet(publishedAt,title,thumbnails,resourceId(videoId)))";
+  let fields = "nextPageToken,items(snippet(publishedAt,channelTitle,title,thumbnails(default, medium),resourceId(videoId)))";
 
   do {
     try {

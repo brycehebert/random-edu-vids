@@ -1,4 +1,5 @@
 require("dotenv").config({ path: __dirname + `/../.env` });
+const _ = require("lodash");
 const { channels } = require("./channels");
 const fs = require("fs");
 
@@ -34,8 +35,9 @@ const getAllUploads = async (playlist) => {
       });
       //Capture the next page token
       nextPage = response.data.nextPageToken;
-      //Add the returned playlist resource to the array of all the uploads currently returned.
-      items = items.concat(response.data.items);
+      //Make a deep clone of each snippet, since everything we need is in the snippet object. 
+      //Add them to the array of items.
+      items = items.concat(response.data.items.map(ele => _.cloneDeep(ele.snippet)));
     } catch (error) {
       throw error; //The promise chain is expected to catch this
     }

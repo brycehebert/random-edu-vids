@@ -46,22 +46,20 @@ const getAllUploads = async (playlist) => {
   return items;
 };
 /*******************************************************
-Example of a single element from the returned array:
+Example of a single element from the array returned by getAllUploads
 {
-  snippet: {
-    publishedAt: datetime  - The time at which video was published
-    title: string,  - The title of the video
-    thumbnails: {  - Object containing info about various available thumbnail images
-      default: {
-        url: string,  - The URL of the image
-        width: integer,  - Width of the image
-        height: integer  - Height of the image
-      },
-      (medium, high, standard, maxres) - same structure as default resolution obj above,
+  publishedAt: datetime  - The time at which video was published
+  title: string,  - The title of the video
+  thumbnails: {  - Object containing info about various available thumbnail images
+    default: {
+      url: string,  - The URL of the image
+      width: integer,  - Width of the image
+      height: integer  - Height of the image
     },
-    resourceId: {
-      videoId: string  -The youtube videoId of the video
-    }
+    medium: {...} - same structure as default resolution obj above,
+  },
+  resourceId: {
+    videoId: string  -The youtube videoId of the video
   }
 }
 *******************************************************/

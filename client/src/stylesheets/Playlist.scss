@@ -1,0 +1,13 @@
+.Playlist {
+  overflow-x: scroll;
+
+  .playlist-container {
+    div:first-child {
+      margin-left: 0 !important;
+    }
+
+    div:last-child {
+      margin-right: 0 !important;
+    }
+  }
+}

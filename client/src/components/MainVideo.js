@@ -1,10 +1,15 @@
-import "../stylesheets/MainVideo.css";
+import "../stylesheets/MainVideo.scss";
 import YouTube from "react-youtube";
 
-const MainVideo = () => {
+const MainVideo = ({videos}) => {
+  const getRandomVideoId = (vids) => {
+    let video = Math.floor(Math.random() * vids.length);
+    return vids[video].resourceId.videoId;
+  };
+
   return (
     <div className="MainVideo">
-      <YouTube videoId="thOifuHs6eY" className="youtube-player" />
+      <YouTube videoId={getRandomVideoId(videos)} className="youtube-player" />
     </div>
   );
 };

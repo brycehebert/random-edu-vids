@@ -12,7 +12,7 @@ const OptionsPanel = () => {
       <Form.Control>
         {channels}
         <Container textAlign="center" tablet={{textAlign: "left"}}>
-          <Button mt={2} color="info" >Get New Playlist</Button>
+          <Button my={2} color="info" >Get New Playlist</Button>
         </Container>
       </Form.Control>
     </div>

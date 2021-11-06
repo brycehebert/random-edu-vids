@@ -4,7 +4,6 @@ import { Container } from "react-bulma-components";
 import PlaylistItem from "./PlaylistItem";
 
 const Playlist = ({videos}) => {
-  console.log(videos)
   //TODO: Use real data from state store
   const testArray = videos.map((ele, index) => <PlaylistItem key={index} video={ele} />);
   const playlistRef = useRef(); //Reference to Playlist dom element

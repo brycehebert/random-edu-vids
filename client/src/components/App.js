@@ -35,3 +35,26 @@ const App = () => {
 };
 
 export default App;
+
+/* Example state
+
+const state = {
+  currentVideoId: "FWP41MXLMGY",
+  prevVideoId: "",
+  nextVideoId: "",
+  currentPlaylist: [{}],
+  selectedChannels: [{}],
+  channelsInfo: [{}]
+}
+
+const actions = [
+  {type: "video/videoEnded", payload: nextVideoId},
+  {type: "control/nextVideo", payload: nextVideoId},
+  {type: "control/prevVideo", payload: prevVideoId},
+  {type: "control/shuffle", payload: shuffledPlaylist[{}]},
+  {type: "playlist/videoClicked", payload: videoId},
+  {type: "playlist/playlistEnd", payload: newPlaylist[{}]},
+  {type: "options/channelSelect", payload: channel{}},
+  {type: "options/newPlaylist", payload: newPlaylist[{}]}
+];
+*/

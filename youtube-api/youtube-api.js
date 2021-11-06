@@ -77,8 +77,9 @@ const getAndWritePlaylist = (channelName) => {
 
 //Write the given playlist to a json file and js file. Use name to name the files name-uploads.js(on)
 const writePlaylist = (name, playlist) => {
-  fs.writeFileSync(`${__dirname}/playlists/${name}-uploads.json`, JSON.stringify(playlist))
-  fs.writeFileSync(`${__dirname}/playlists/${name}-uploads.js`, util.formatWithOptions({ compact: false }, "%o", playlist), "utf-8");
+  fs.writeFileSync(`${__dirname}/playlists/${name}-uploads.json`, JSON.stringify(playlist));
+  fs.writeFileSync(`${__dirname}/playlists/${name}-uploads.js`,`module.exports.${name} = `, "utf-8");
+  fs.appendFileSync(`${__dirname}/playlists/${name}-uploads.js`, util.inspect(playlist, { compact: false, maxArrayLength: Infinity }, "utf-8"));
 };
 
 //Uses channels array to retrieve avatars for each youtube channel
@@ -102,12 +103,16 @@ const getAvatars = async () => {
   return items;
 };
 
-getAvatars()
-  .then((data) => {
-    //Write the returned data to json and js files.
-    fs.writeFileSync(`avatars.json`, JSON.stringify(data));
-    fs.writeFileSync("avatars.js", util.formatWithOptions({ compact: false }, "%o", data), "utf-8");
-  })
-  .catch((err) => console.log(err));
+// getAvatars()
+//   .then((data) => {
+//     //Write the returned data to json and js files.
+//     fs.writeFileSync(`avatars.json`, JSON.stringify(data));
+//     fs.writeFileSync("avatars.js", util.formatWithOptions({ compact: false }, "%o", data), "utf-8");
+//   })
+//   .catch((err) => console.log(err));
 
-//getAndWritePlaylist("cgpgrey");
+for (key in channels) {
+  getAndWritePlaylist(key);
+}
+
+//getAndWritePlaylist("veritasium");

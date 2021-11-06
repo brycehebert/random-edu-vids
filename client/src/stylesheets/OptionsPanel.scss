@@ -1,0 +1,8 @@
+.OptionsPanel {
+  .ChannelBox:nth-child(2n) {
+    background-color: #f3f3f3;
+  }
+  div:last-child {
+    background-color: inherit;
+  }
+}

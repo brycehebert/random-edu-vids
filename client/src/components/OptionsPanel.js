@@ -1,19 +1,10 @@
 import "../stylesheets/OptionsPanel.scss"
 import { Form, Button, Container } from "react-bulma-components"
 import ChannelBox from "./ChannelBox"
-import { channelsInfo } from "../seed";
-//import { useCallback } from "react";
+import channelsInfo from "../channels"
 
 const OptionsPanel = () => {
-  //TODO: Use real data from state store
   let channels = channelsInfo.map((ele, index) => <ChannelBox key={index} channel={ele}/> )
-
-  // const handlePlaylistSubmit = useCallback(
-  //   () => {
-  //     callback
-  //   },
-  //   [input],
-  // )
 
   return (    
     <div className="OptionsPanel">

@@ -1,29 +1,22 @@
 import "../stylesheets/MainVideo.scss";
 import YouTube from "react-youtube";
-import axios from "axios";
+import { useSelector } from "react-redux";
+import { selectVideoById } from "../reducers/playlistSlice";
+import { useState } from "react";
 
-const MainVideo = ({videos}) => {
-  const getRandomVideoId = (vids) => {
-    let video = Math.floor(Math.random() * vids.length);
-    return vids[video].resourceId.videoId;
-  };
+const MainVideo = () => {
+  let [autoPlay, setAutoPlay] = useState(0)
+  let currentVideo = useSelector(state => selectVideoById(state, state.playlist.currentPlaying));
 
   const videoStateChanged = e => {
-    if (e.data === -1){
-      axios({
-        method: "POST",
-        url: "http://localhost:3001/api/getPlaylist",
-        data: {
-          selectedChannels: ["cgpgrey", "veritasium", "smartereveryday"],
-          currentPlaylist: videos
-        }
-      }).then(res => console.log(res.data) )
+    if (e.data === YouTube.PlayerState.ENDED) {
+
     }
   }
 
   return (
     <div className="MainVideo">
-      <YouTube videoId={getRandomVideoId(videos)} onStateChange={videoStateChanged} className="youtube-player" />
+      <YouTube videoId={currentVideo.resourceId.videoId} opts={{playerVars: {autoplay: autoPlay}}} onStateChange={videoStateChanged} className="youtube-player" />
     </div>
   );
 };

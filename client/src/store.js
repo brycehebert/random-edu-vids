@@ -1,9 +1,10 @@
-import { createStore } from "redux";
-import { composeWithDevTools } from 'redux-devtools-extension'
-import rootReducer from "./reducer"
+import { configureStore } from "@reduxjs/toolkit"
+import playlistReducer from "./reducers/playlistSlice"
 
-const store = createStore(rootReducer);
+const store = configureStore({
+  reducer: {
+    playlist: playlistReducer
+  }
+})
 
 export default store;
-
-//example: https://github.com/reduxjs/redux-fundamentals-example-app

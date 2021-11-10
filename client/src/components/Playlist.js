@@ -1,13 +1,15 @@
 import { useRef, useEffect, useCallback } from "react";
+import { useSelector } from "react-redux";
 import "../stylesheets/Playlist.scss";
 import { Container } from "react-bulma-components";
 import PlaylistItem from "./PlaylistItem";
+import { selectVideos } from "../reducers/playlistSlice";
 
-const Playlist = ({videos}) => {
-  //TODO: Use real data from state store
-  const testArray = videos.map((ele, index) => <PlaylistItem key={index} video={ele} />);
+const Playlist = () => {
+  let videos = useSelector(selectVideos);
+  let playlistItems = videos.map((ele, index) => <PlaylistItem key={index} video={ele} />);
   const playlistRef = useRef(); //Reference to Playlist dom element
-
+  
   //Make Playlist scroll horizontally with mouse wheel
   const onPlaylistWheel = useCallback((e) => {
     let { scrollLeft, scrollWidth, clientWidth } = playlistRef.current;
@@ -33,7 +35,7 @@ const Playlist = ({videos}) => {
         justifyContent="flex-start"
         flexWrap="nowrap"
       >
-        {testArray}
+        {playlistItems}
       </Container>
     </div>
   );

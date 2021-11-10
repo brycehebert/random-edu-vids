@@ -283,20 +283,20 @@ export const videos = [
   }
 ];
 
-export const channelsInfo = [
-  { keyName: "cgpgrey", channelName: "CGP Grey", avatarUrl:"https://yt3.ggpht.com/ytc/AKedOLS7B0VZFxgHWsLLpXC2rHY7bflcvjVuN68OFVY6=s240-c-k-c0x00ffffff-no-rj" },
-  { keyName: "vsauce", channelName: "Vsauce", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLSCpbn6_3KOR7zAuqaS9fXtX7JAb0AQ6Y_f33ohog=s240-c-k-c0x00ffffff-no-rj" },
-  { keyName: "veritasium", channelName: "Veritasium", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLS6qhCOSn2LBAn1k1QnFYAMXAxGso7PnOeqWruerA=s240-c-k-c0x00ffffff-no-rj" },
-  { keyName: "smartereveryday", channelName: "SmarterEveryDay", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLQjGSf-ONLuBlcY6KzEFJqoaIJNjiXvM-iahXv7Cg=s240-c-k-c0x00ffffff-no-rj" },
-  { keyName: "markrober", channelName: "Mark Rober", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLRN1579qcowoOyJZgtiLI2CKMBqvHqEWFYvhrri=s240-c-k-c0x00ffffff-no-rj" },
-  { keyName: "nilered", channelName: "NileRed", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLTVNZe9V4AH3f-ttOD_Xow8M5jACEWUQ9Gd0GMs8A=s240-c-k-c0x00ffffff-no-rj" },
-  { keyName: "realengineering", channelName: "Real Engineering", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLRHtlYUfKRGpaVbGFvz8w2M8r91QToE7kk_n2Hgnw=s240-c-k-c0x00ffffff-no-rj" }
-];
+// export const channelsInfo = [
+//   { id: "cgpgrey", channelName: "CGP Grey", avatarUrl:"https://yt3.ggpht.com/ytc/AKedOLS7B0VZFxgHWsLLpXC2rHY7bflcvjVuN68OFVY6=s240-c-k-c0x00ffffff-no-rj" },
+//   { id: "vsauce", channelName: "Vsauce", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLSCpbn6_3KOR7zAuqaS9fXtX7JAb0AQ6Y_f33ohog=s240-c-k-c0x00ffffff-no-rj" },
+//   { id: "veritasium", channelName: "Veritasium", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLS6qhCOSn2LBAn1k1QnFYAMXAxGso7PnOeqWruerA=s240-c-k-c0x00ffffff-no-rj" },
+//   { id: "smartereveryday", channelName: "SmarterEveryDay", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLQjGSf-ONLuBlcY6KzEFJqoaIJNjiXvM-iahXv7Cg=s240-c-k-c0x00ffffff-no-rj" },
+//   { id: "markrober", channelName: "Mark Rober", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLRN1579qcowoOyJZgtiLI2CKMBqvHqEWFYvhrri=s240-c-k-c0x00ffffff-no-rj" },
+//   { id: "nilered", channelName: "NileRed", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLTVNZe9V4AH3f-ttOD_Xow8M5jACEWUQ9Gd0GMs8A=s240-c-k-c0x00ffffff-no-rj" },
+//   { id: "realengineering", channelName: "Real Engineering", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLRHtlYUfKRGpaVbGFvz8w2M8r91QToE7kk_n2Hgnw=s240-c-k-c0x00ffffff-no-rj" }
+// ];
 
-export const videosTestArr = () => {
-  let randomVids = [];
-  for (let i = 0; i < 15; i++) {
-    randomVids.push(videos[Math.floor(Math.random() * videos.length)]);
-  }
-  return randomVids;
-};
+// export const videosTestArr = () => {
+//   let randomVids = [];
+//   for (let i = 0; i < 15; i++) {
+//     randomVids.push(videos[Math.floor(Math.random() * videos.length)]);
+//   }
+//   return randomVids;
+// };

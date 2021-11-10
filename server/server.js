@@ -10,9 +10,8 @@ const getRandomNum = (limit) => {
   return Math.floor(Math.random() * limit);
 }
 
-const generateRandomPlaylist = (selectedChannels, currentPlaylist) => {
+const generateRandomPlaylist = (selectedChannels = channelNames, currentPlaylist) => {
   let newPlaylist = [];
-  
   for (let i = 0 ; i < 25; i++) {
     //First, pick a channel
     let ch = selectedChannels[getRandomNum(selectedChannels.length)];
@@ -22,8 +21,8 @@ const generateRandomPlaylist = (selectedChannels, currentPlaylist) => {
     //Rudimentary method of avoiding repeats.
     do {
       vid = channels[ch][getRandomNum(channels[ch].length)];
-      attempts++
-    } while (newPlaylist.every(ele => ele.resourceId.videoId !== vid.resourceId.videoId ) && attempts < 10);
+      attempts++;
+    } while (!newPlaylist.every(ele => ele.resourceId.videoId !== vid.resourceId.videoId) || attempts < 10);
 
     newPlaylist.push(vid);
   }
@@ -43,6 +42,11 @@ const verifyRequest = () => {
 app.get("/", (req, res) => {
   res.send("Hello");
 });
+
+app.get('/api/getPlaylist', (req, res) => {
+  let playlist = generateRandomPlaylist();
+  res.status(200).json(playlist);
+})
 
 app.post("/api/getPlaylist", verifyRequest(), (req, res) => {
   let newPlaylist = generateRandomPlaylist(req.body.selectedChannels, req.body.currentPlaylist);

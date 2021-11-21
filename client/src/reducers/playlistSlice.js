@@ -9,7 +9,9 @@ const initialState = playlistAdapter.getInitialState({
   status: "idle",
   currentPlaying: "",
   prevVideo: "",
-  nextVideo: ""
+  nextVideo: "",
+  firstVideo: "",
+  lastVideo: ""
 });
 
 export const getPlaylist = createAsyncThunk("playlist/getPlaylist", async () => {
@@ -24,8 +26,8 @@ const playlistSlice = createSlice({
     nextVideoPressed(state, action) {
       state.prevVideo = state.currentPlaying;
       state.currentPlaying = state.nextVideo;
-      if (state.nextVideo === state.ids.slice(-1)[0]) {
-        state.nextVideo = state.ids[0];
+      if (state.nextVideo === state.lastVideo) {
+        state.nextVideo = state.firstVideo;
         return;
       }
       let index = state.ids.findIndex((ele) => ele === state.nextVideo);
@@ -34,12 +36,18 @@ const playlistSlice = createSlice({
     prevButtonPressed(state, action) {
       state.nextVideo = state.currentPlaying;
       state.currentPlaying = state.prevVideo;
-      if (state.prevVideo === state.ids[0]){
-        state.prevVideo = state.ids[state.ids.length - 1];
+      if (state.prevVideo === state.firstVideo) {
+        state.prevVideo = state.lastVideo;
         return;
       }
       let index = state.ids.findIndex((ele) => ele === state.prevVideo);
       state.prevVideo = state.ids[index - 1];
+    },
+    shuffleButtonPressed(state, action) {
+      playlistAdapter.setAll(state, action.payload);
+      state.currentPlaying = state.firstVideo = state.ids[0];
+      state.nextVideo = state.ids[1];
+      state.prevVideo = state.lastVideo = state.ids[state.ids.length - 1];
     }
   },
   extraReducers: (builder) => {
@@ -49,8 +57,9 @@ const playlistSlice = createSlice({
       })
       .addCase(getPlaylist.fulfilled, (state, action) => {
         playlistAdapter.setAll(state, action.payload);
-        state.currentPlaying = state.ids[0];
+        state.currentPlaying = state.firstVideo = state.ids[0];
         state.nextVideo = state.ids[1];
+        state.prevVideo = state.lastVideo = state.ids[state.ids.length - 1];
         state.status = "idle";
       });
   }
@@ -62,6 +71,6 @@ export const {
   selectIds: selectVideoIds
 } = playlistAdapter.getSelectors((state) => state.playlist);
 
-export const { nextVideoPressed, prevButtonPressed } = playlistSlice.actions;
+export const { nextVideoPressed, prevButtonPressed, shuffleButtonPressed } = playlistSlice.actions;
 
 export default playlistSlice.reducer;

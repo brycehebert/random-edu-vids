@@ -9,15 +9,15 @@ import { useSelector } from "react-redux";
 const App = () => {
   let loadingStatus = useSelector((state) => state.playlist.status);
 
-  if (loadingStatus === "loading") return <></>;
   return (
     <div className="App">
+      {loadingStatus === "loading" ? <></> : <>
       <Container breakpoint="widescreen" mt="1">
         <MainVideo />
       </Container>
       <Container breakpoint="widescreen" my="3">
         <Playlist />
-      </Container>
+      </Container></>}
       <Container breakpoint="widescreen" mt="3">
         <Columns breakpoint="tablet" marginless>
           <Columns.Column textAlign="center" tablet={{ textAlign: "left" }} paddingless>

@@ -1,5 +1,10 @@
 .PlaylistItem {
+  padding: 5px 5px 0 5px;
   max-width: 180px;
+
+  .subtitle {
+    padding-bottom: 3px;
+  }
 }
 
 .truncate > h1 {
@@ -11,4 +16,8 @@
 
 .playlist-video-title {
   min-height: 1.4em;
+}
+
+.playlist-current-video {
+  background: #dbecff;
 }

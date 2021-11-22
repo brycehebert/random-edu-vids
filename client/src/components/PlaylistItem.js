@@ -1,9 +1,9 @@
 import { Media, Image, Heading, Container } from "react-bulma-components";
 import "../stylesheets/PlaylistItem.scss";
 
-const PlaylistItem = ({video}) => {
+const PlaylistItem = ({video, currentVid}) => {
   return (
-    <div className="PlaylistItem mx-1">
+    <div className={`PlaylistItem mx-1 ${currentVid === video.resourceId.videoId ? "playlist-current-video":""}`}> {/* Highlight current playing video */}
       <Media>
         <Media.Item align="left">
           <Image src={video.thumbnails.medium.url} size="16by9" alt={video.title} style={{ width: "160px" }} />

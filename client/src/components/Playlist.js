@@ -7,7 +7,8 @@ import { selectVideos } from "../reducers/playlistSlice";
 
 const Playlist = () => {
   let videos = useSelector(selectVideos);
-  let playlistItems = videos.map((ele, index) => <PlaylistItem key={index} video={ele} />);
+  let currentVid = useSelector(state => state.playlist.currentPlaying)
+  let playlistItems = videos.map((ele, index) => <PlaylistItem key={index} video={ele} currentVid={currentVid} />);
   const playlistRef = useRef(); //Reference to Playlist dom element
   
   //Make Playlist scroll horizontally with mouse wheel

@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  autoplay: 0
+  autoplay: 0,
+  videoState: -1
 };
 
 const videoSlice = createSlice({
@@ -10,10 +11,13 @@ const videoSlice = createSlice({
   reducers: {
     setAutoPlay(state, action) {
       state.autoplay = action.payload;
+    },
+    setVideoState(state, action) {
+      state.videoState = action.payload;
     }
   }
 });
 
-export const { setAutoPlay } = videoSlice.actions;
+export const { setAutoPlay, setVideoState } = videoSlice.actions;
 
 export default videoSlice.reducer;

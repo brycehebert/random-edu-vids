@@ -19,6 +19,14 @@ export const getPlaylist = createAsyncThunk("playlist/getPlaylist", async () => 
   return response.data;
 });
 
+export const getCustomPlaylist = createAsyncThunk("playlist/getCustomPlaylist", async () => {
+  const response = await axios.get("http://192.168.0.139:3001/api/getCustomPlaylist",{
+    params: {selectedChannels: "cgpgrey veritasium"}
+  });
+  
+  return response.data;
+})
+
 const playlistSlice = createSlice({
   name: "playlist",
   initialState,
@@ -61,7 +69,17 @@ const playlistSlice = createSlice({
         state.nextVideo = state.ids[1];
         state.prevVideo = state.lastVideo = state.ids[state.ids.length - 1];
         state.status = "idle";
-      });
+      })
+      .addCase(getCustomPlaylist.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(getCustomPlaylist.fulfilled, (state, action) => {
+        playlistAdapter.setAll(state, action.payload);
+        state.currentPlaying = state.firstVideo = state.ids[0];
+        state.nextVideo = state.ids[1];
+        state.prevVideo = state.lastVideo = state.ids[state.ids.length - 1];
+        state.status = "idle";
+      })
   }
 });
 

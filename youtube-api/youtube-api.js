@@ -18,7 +18,7 @@ const getChannelUploads = async (channel) => {
 /************************************
 Retrieve all uploads from the given playlist
 Returns an array of all resources, each element of the array represents an upload.*/
-const getAllUploads = async (playlist) => {
+const getAllUploads = async (playlist, channelName) => {
   let items = []; //Will hold all the the returned resources
   let nextPage; //Holds the next page token
   //The data interested in for each resource
@@ -47,28 +47,10 @@ const getAllUploads = async (playlist) => {
 
   return items;
 };
-/*******************************************************
-Example of a single element from the array returned by getAllUploads
-{
-  publishedAt: datetime  - The time at which video was published
-  title: string,  - The title of the video
-  thumbnails: {  - Object containing info about various available thumbnail images
-    default: {
-      url: string,  - The URL of the image
-      width: integer,  - Width of the image
-      height: integer  - Height of the image
-    },
-    medium: {...} - same structure as default resolution obj above,
-  },
-  resourceId: {
-    videoId: string  -The youtube videoId of the video
-  }
-}
-*******************************************************/
 
 //Retrieve the playlist items from the provided ChannelID and write the result to a json file
 const getAndWritePlaylist = (channelName) => {
-  getAllUploads(channels[channelName].uploads)
+  getAllUploads(channels[channelName].uploads, channelName)
     .then((res) => {
       writePlaylist(channelName, res);
     })
@@ -114,5 +96,3 @@ const getAvatars = async () => {
 for (key in channels) {
   getAndWritePlaylist(key);
 }
-
-//getAndWritePlaylist("veritasium");

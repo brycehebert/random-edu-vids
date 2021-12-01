@@ -24,6 +24,8 @@ const getAllUploads = async (playlist, channelName) => {
   //The data interested in for each resource
   let fields =
     "nextPageToken,items(snippet(publishedAt,channelTitle,title,thumbnails(default, medium),resourceId(videoId)))";
+  let vSauceFinal = null;
+  if (channelName === "vsauce") vSauceFinal = new Date("2013-01-02T18:01:22Z").valueOf();
 
   do {
     try {
@@ -37,6 +39,13 @@ const getAllUploads = async (playlist, channelName) => {
       });
       //Capture the next page token
       nextPage = response.data.nextPageToken;
+      if (vSauceFinal) {
+        let test = response.data.items.every(ele => new Date(ele.snippet.publishedAt).valueOf() >= vSauceFinal);
+        if (!test) {
+          response.data.items = response.data.items.filter(ele => new Date(ele.snippet.publishedAt).valueOf() >= vSauceFinal);
+          nextPage = null;
+        }
+      }
       //Make a deep clone of each snippet, since everything we need is in the snippet object.
       //Add them to the array of items.
       items = items.concat(response.data.items.map((ele) => _.cloneDeep(ele.snippet)));
@@ -60,8 +69,11 @@ const getAndWritePlaylist = (channelName) => {
 //Write the given playlist to a json file and js file. Use name to name the files name-uploads.js(on)
 const writePlaylist = (name, playlist) => {
   fs.writeFileSync(`${__dirname}/playlists/${name}-uploads.json`, JSON.stringify(playlist));
-  fs.writeFileSync(`${__dirname}/playlists/${name}-uploads.js`,`module.exports.${name} = `, "utf-8");
-  fs.appendFileSync(`${__dirname}/playlists/${name}-uploads.js`, util.inspect(playlist, { compact: false, maxArrayLength: Infinity }, "utf-8"));
+  fs.writeFileSync(`${__dirname}/playlists/${name}-uploads.js`, `module.exports.${name} = `, "utf-8");
+  fs.appendFileSync(
+    `${__dirname}/playlists/${name}-uploads.js`,
+    util.inspect(playlist, { compact: false, maxArrayLength: Infinity }, "utf-8")
+  );
 };
 
 //Uses channels array to retrieve avatars for each youtube channel
@@ -93,6 +105,8 @@ const getAvatars = async () => {
 //   })
 //   .catch((err) => console.log(err));
 
-for (key in channels) {
-  getAndWritePlaylist(key);
-}
+// for (key in channels) {
+//   getAndWritePlaylist(key);
+// }
+
+getAndWritePlaylist("vsauce");

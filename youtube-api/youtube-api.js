@@ -24,8 +24,9 @@ const getAllUploads = async (playlist, channelName) => {
   //The data interested in for each resource
   let fields =
     "nextPageToken,items(snippet(publishedAt,channelTitle,title,thumbnails(default, medium),resourceId(videoId)))";
-  let vSauceFinal = null;
-  if (channelName === "vsauce") vSauceFinal = new Date("2013-01-02T18:01:22Z").valueOf();
+
+  //The oldest Vsauce video being accepted
+  let vSauceFinal = channelName === "vsauce" ? new Date("2013-01-02T18:01:22Z").valueOf() : null;
 
   do {
     try {
@@ -39,11 +40,18 @@ const getAllUploads = async (playlist, channelName) => {
       });
       //Capture the next page token
       nextPage = response.data.nextPageToken;
+
+      //Old Vsauce videos are not really educational in nature.
+      //Thus, exclude them from their list of videos.
       if (vSauceFinal) {
-        let test = response.data.items.every(ele => new Date(ele.snippet.publishedAt).valueOf() >= vSauceFinal);
+        //Check if any videos in the most recent response are older than the oldest video being accepted
+        let test = response.data.items.every((ele) => new Date(ele.snippet.publishedAt).valueOf() >= vSauceFinal);
+        //If the test failed, filter out the older videos from the response
         if (!test) {
-          response.data.items = response.data.items.filter(ele => new Date(ele.snippet.publishedAt).valueOf() >= vSauceFinal);
-          nextPage = null;
+          response.data.items = response.data.items.filter(
+            (ele) => new Date(ele.snippet.publishedAt).valueOf() >= vSauceFinal
+          );
+          nextPage = null; //No reason to continue as all videos from here are older
         }
       }
       //Make a deep clone of each snippet, since everything we need is in the snippet object.
@@ -105,8 +113,6 @@ const getAvatars = async () => {
 //   })
 //   .catch((err) => console.log(err));
 
-// for (key in channels) {
-//   getAndWritePlaylist(key);
-// }
-
-getAndWritePlaylist("vsauce");
+for (key in channels) {
+  getAndWritePlaylist(key);
+}

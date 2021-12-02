@@ -19,9 +19,9 @@ export const getPlaylist = createAsyncThunk("playlist/getPlaylist", async () => 
   return response.data;
 });
 
-export const getCustomPlaylist = createAsyncThunk("playlist/getCustomPlaylist", async () => {
+export const getCustomPlaylist = createAsyncThunk("playlist/getCustomPlaylist", async (payload) => {
   const response = await axios.get("http://192.168.0.139:3001/api/getCustomPlaylist",{
-    params: {selectedChannels: "cgpgrey veritasium"}
+    params: {selectedChannels: payload}
   });
   
   return response.data;

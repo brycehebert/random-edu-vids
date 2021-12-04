@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const path = require('path');
 const { channels, channelNames } = require("./playlists/allPlaylists.js");
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../client/build')))
 
 //Generate a random number for [0, limit)
 const getRandomNum = (limit) => {
@@ -54,7 +56,7 @@ const verifyGetRequest = () => {
 };
 
 app.get("/", (req, res) => {
-  res.send("Hello");
+  res.sendFile(path.join(__dirname+'../client/build/index.html'))
 });
 
 app.get("/api/getPlaylist", (req, res) => {

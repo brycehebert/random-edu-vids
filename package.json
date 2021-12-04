@@ -9,7 +9,7 @@
     "server": "nodemon ./server/server",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client \"",
-    "start": "code server/server.js"
+    "start": "node server/server.js"
   },
   "author": "",
   "license": "ISC",

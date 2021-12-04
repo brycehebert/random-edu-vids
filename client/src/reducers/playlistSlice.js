@@ -15,12 +15,12 @@ const initialState = playlistAdapter.getInitialState({
 });
 
 export const getPlaylist = createAsyncThunk("playlist/getPlaylist", async () => {
-  const response = await axios.get("http://192.168.0.139:3001/api/getPlaylist");
+  const response = await axios.get("https://random-edu-vids.herokuapp.com/api/getPlaylist");
   return response.data;
 });
 
 export const getCustomPlaylist = createAsyncThunk("playlist/getCustomPlaylist", async (payload) => {
-  const response = await axios.get("http://192.168.0.139:3001/api/getCustomPlaylist",{
+  const response = await axios.get("https://random-edu-vids.herokuapp.com/api/getCustomPlaylist",{
     params: {selectedChannels: payload}
   });
   

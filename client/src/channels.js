@@ -1,6 +1,6 @@
 const channelsInfo = [
   { id: "cgpgrey", channelName: "CGP Grey", avatarUrl:"https://yt3.ggpht.com/ytc/AKedOLS7B0VZFxgHWsLLpXC2rHY7bflcvjVuN68OFVY6=s240-c-k-c0x00ffffff-no-rj" },
-  { id: "vsauce", channelName: "Vsauce", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLSCpbn6_3KOR7zAuqaS9fXtX7JAb0AQ6Y_f33ohog=s240-c-k-c0x00ffffff-no-rj" },
+  //{ id: "vsauce", channelName: "Vsauce", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLSCpbn6_3KOR7zAuqaS9fXtX7JAb0AQ6Y_f33ohog=s240-c-k-c0x00ffffff-no-rj" },
   { id: "veritasium", channelName: "Veritasium", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLS6qhCOSn2LBAn1k1QnFYAMXAxGso7PnOeqWruerA=s240-c-k-c0x00ffffff-no-rj" },
   { id: "smartereveryday", channelName: "SmarterEveryDay", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLQjGSf-ONLuBlcY6KzEFJqoaIJNjiXvM-iahXv7Cg=s240-c-k-c0x00ffffff-no-rj" },
   { id: "markrober", channelName: "Mark Rober", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLRN1579qcowoOyJZgtiLI2CKMBqvHqEWFYvhrri=s240-c-k-c0x00ffffff-no-rj" },

@@ -1,16 +1,20 @@
 import { useRef, useEffect, useCallback } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../stylesheets/Playlist.scss";
 import { Container } from "react-bulma-components";
 import PlaylistItem from "./PlaylistItem";
-import { selectVideos } from "../reducers/playlistSlice";
+import { selectVideos, playlistItemClicked } from "../reducers/playlistSlice";
 
 const Playlist = () => {
+  let dispatch = useDispatch();
   let videos = useSelector(selectVideos);
-  let currentVid = useSelector(state => state.playlist.currentPlaying)
-  let playlistItems = videos.map((ele, index) => <PlaylistItem key={index} video={ele} currentVid={currentVid} />);
+  let currentVid = useSelector((state) => state.playlist.currentPlaying);
   const playlistRef = useRef(); //Reference to Playlist dom element
-  
+
+  const onPlaylistItemClicked = (videoId) => {
+    if (videoId === currentVid) return;
+    dispatch(playlistItemClicked(videoId));
+  };
   //Make Playlist scroll horizontally with mouse wheel
   const onPlaylistWheel = useCallback((e) => {
     let { scrollLeft, scrollWidth, clientWidth } = playlistRef.current;
@@ -26,6 +30,10 @@ const Playlist = () => {
   useEffect(() => {
     playlistRef.current.onwheel = onPlaylistWheel;
   }, [onPlaylistWheel]);
+
+  let playlistItems = videos.map((ele, index) => (
+    <PlaylistItem key={index} video={ele} currentVid={currentVid} onClick={onPlaylistItemClicked} />
+  ));
 
   return (
     <div className="Playlist" ref={playlistRef}>

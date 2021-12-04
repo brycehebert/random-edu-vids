@@ -56,6 +56,20 @@ const playlistSlice = createSlice({
       state.currentPlaying = state.firstVideo = state.ids[0];
       state.nextVideo = state.ids[1];
       state.prevVideo = state.lastVideo = state.ids[state.ids.length - 1];
+    },
+    playlistItemClicked(state, action) {
+      state.currentPlaying = action.payload;
+      let index = state.ids.findIndex(ele => ele === action.payload);
+      if (index === state.ids.length - 1) {
+        state.nextVideo = state.firstVideo
+      } else {
+        state.nextVideo = state.ids[index + 1];
+      }
+      if (index === 0) {
+        state.prevVideo = state.lastVideo;
+      } else {
+        state.prevVideo = state.ids[index - 1];
+      }
     }
   },
   extraReducers: (builder) => {
@@ -89,6 +103,6 @@ export const {
   selectIds: selectVideoIds
 } = playlistAdapter.getSelectors((state) => state.playlist);
 
-export const { nextVideoPressed, prevButtonPressed, shuffleButtonPressed } = playlistSlice.actions;
+export const { nextVideoPressed, prevButtonPressed, shuffleButtonPressed, playlistItemClicked } = playlistSlice.actions;
 
 export default playlistSlice.reducer;

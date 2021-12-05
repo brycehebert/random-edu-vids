@@ -112,3 +112,6 @@ dev.js
 #ignore the json files in the youtube api folder
 youtube-api/playlists/*.json
 youtube-api/playlists/*.js
+
+#ignore build directory
+client/build

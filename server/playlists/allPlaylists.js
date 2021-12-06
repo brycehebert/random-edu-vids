@@ -1,4 +1,4 @@
-const channelNames = ["cgpgrey", "markrober", "nilered", "realengineering", "smartereveryday", "veritasium"];
+const channelNames = ["cgpgrey", "markrober", "nilered", "realengineering", "smartereveryday", "veritasium", "tomscott", "kurzgesagt"];
 module.exports.channelNames = channelNames;
 module.exports.channels = {};
 

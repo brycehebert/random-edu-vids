@@ -5,7 +5,9 @@ const channelsInfo = [
   { id: "smartereveryday", channelName: "SmarterEveryDay", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLQjGSf-ONLuBlcY6KzEFJqoaIJNjiXvM-iahXv7Cg=s240-c-k-c0x00ffffff-no-rj" },
   { id: "markrober", channelName: "Mark Rober", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLRN1579qcowoOyJZgtiLI2CKMBqvHqEWFYvhrri=s240-c-k-c0x00ffffff-no-rj" },
   { id: "nilered", channelName: "NileRed", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLTVNZe9V4AH3f-ttOD_Xow8M5jACEWUQ9Gd0GMs8A=s240-c-k-c0x00ffffff-no-rj" },
-  { id: "realengineering", channelName: "Real Engineering", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLRHtlYUfKRGpaVbGFvz8w2M8r91QToE7kk_n2Hgnw=s240-c-k-c0x00ffffff-no-rj" }
+  { id: "realengineering", channelName: "Real Engineering", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLRHtlYUfKRGpaVbGFvz8w2M8r91QToE7kk_n2Hgnw=s240-c-k-c0x00ffffff-no-rj" },
+  { id: "tomscott", channelName: "Tom Scott", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLSLrbgiwuHkiq9CtD21xlxlbDpTdZ-Dby1a24-Mgg=s240-c-k-c0x00ffffff-no-rj"},
+  { id: "kurzgesagt", channelName: "Kurzgesagt – In a Nutshell", avatarUrl: "https://yt3.ggpht.com/ytc/AKedOLQOUQoF4PD6C6qXjOe6c2tS8v7YCn48c6_kdCB2HA=s240-c-k-c0x00ffffff-no-rj" }
 ];
 
 export default channelsInfo;

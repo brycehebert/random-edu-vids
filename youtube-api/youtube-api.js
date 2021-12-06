@@ -85,7 +85,7 @@ const writePlaylist = (name, playlist) => {
 };
 
 //Uses channels array to retrieve avatars for each youtube channel
-const getAvatars = async () => {
+const getAllAvatars = async () => {
   let items = [];
   let fields = "items(snippet(title, thumbnails(medium)))";
 
@@ -105,6 +105,23 @@ const getAvatars = async () => {
   return items;
 };
 
+const getSingleAvatar = async (channel) => {
+  let avatar;
+  let fields = "items(snippet(title, thumbnails(medium)))";
+
+  try {
+    let response = await youtube.channels.list({
+      id: channels[channel]["channelID"],
+      part: "snippet",
+      fields
+    });
+    avatar = response.data.items[0].snippet
+  } catch (error) {
+    throw error;
+  }
+  return avatar;
+}
+
 // getAvatars()
 //   .then((data) => {
 //     //Write the returned data to json and js files.
@@ -113,6 +130,12 @@ const getAvatars = async () => {
 //   })
 //   .catch((err) => console.log(err));
 
-for (key in channels) {
-  getAndWritePlaylist(key);
-}
+getSingleAvatar("kurzgesagt").then(ava => console.log(ava)).catch(err => console.log(err));
+
+//getChannelUploads(channels.kurzgesagt.channelID).then(data => console.log(data))
+
+// for (key in channels) {
+//   getAndWritePlaylist(key);
+// }
+
+//getAndWritePlaylist("kurzgesagt")

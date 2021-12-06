@@ -10,14 +10,19 @@ const App = () => {
   let loadingStatus = useSelector((state) => state.playlist.status);
 
   return (
-    <div className="App">
-      {loadingStatus === "loading" ? <></> : <>
-      <Container breakpoint="widescreen" mt="1">
-        <MainVideo />
-      </Container>
+    <Container className="App">
+      {loadingStatus === "loading" ? (
+        <Container className="loading-container" breakpoint="widescreen" mt="1"></Container>
+      ) : (
+        <>
+          <Container breakpoint="widescreen" mt="1">
+            <MainVideo />
+          </Container>
+        </>
+      )}
       <Container breakpoint="widescreen" my="3">
-        <Playlist />
-      </Container></>}
+        {loadingStatus === "loading" ? <div className="Playlist"></div> : <Playlist />}
+      </Container>
       <Container breakpoint="widescreen" mt="3">
         <Columns breakpoint="tablet" marginless>
           <Columns.Column textAlign="center" tablet={{ textAlign: "left" }} paddingless>
@@ -28,7 +33,7 @@ const App = () => {
           </Columns.Column>
         </Columns>
       </Container>
-    </div>
+    </Container>
   );
 };
 

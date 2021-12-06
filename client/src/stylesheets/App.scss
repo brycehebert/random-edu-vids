@@ -1,4 +1,8 @@
 .App {
   margin: 0 auto;
   text-align: center;
+
+  .loading-container {
+    padding-top: calc(56.25%);
+  }
 }

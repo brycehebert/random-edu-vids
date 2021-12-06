@@ -561,7 +561,7 @@ module.exports.cgpgrey = [
   },
   {
     publishedAt: '2020-08-11T12:40:27Z',
-    title: 'What was TEKOI?',
+    title: 'What was this place?',
     thumbnails: {
       default: {
         url: 'https://i.ytimg.com/vi/PCeMCwxayp0/default.jpg',
@@ -661,7 +661,7 @@ module.exports.cgpgrey = [
   },
   {
     publishedAt: '2020-02-27T09:52:24Z',
-    title: 'Exploring TEKOI',
+    title: 'Abandoned Nuclear Weapons Testing Facility Exploration',
     thumbnails: {
       default: {
         url: 'https://i.ytimg.com/vi/ABMV4wXx6Xo/default.jpg',
@@ -961,7 +961,7 @@ module.exports.cgpgrey = [
   },
   {
     publishedAt: '2019-05-07T19:58:15Z',
-    title: 'Driving a Tesla Across The Loneliest Road in America',
+    title: 'Driving a Tesla Across The Loneliest Road',
     thumbnails: {
       default: {
         url: 'https://i.ytimg.com/vi/_naDg-guomA/default.jpg',

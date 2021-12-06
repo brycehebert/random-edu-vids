@@ -1,5 +1,65 @@
 module.exports.veritasium = [
   {
+    publishedAt: '2021-12-01T05:21:34Z',
+    title: 'The Snowflake Mystery',
+    thumbnails: {
+      default: {
+        url: 'https://i.ytimg.com/vi/ao2Jfm35XeE/default.jpg',
+        width: 120,
+        height: 90
+      },
+      medium: {
+        url: 'https://i.ytimg.com/vi/ao2Jfm35XeE/mqdefault.jpg',
+        width: 320,
+        height: 180
+      }
+    },
+    channelTitle: 'Veritasium',
+    resourceId: {
+      videoId: 'ao2Jfm35XeE'
+    }
+  },
+  {
+    publishedAt: '2021-11-27T23:12:19Z',
+    title: "Most People Don't Know How Bikes Work",
+    thumbnails: {
+      default: {
+        url: 'https://i.ytimg.com/vi/9cNmUNHSBac/default.jpg',
+        width: 120,
+        height: 90
+      },
+      medium: {
+        url: 'https://i.ytimg.com/vi/9cNmUNHSBac/mqdefault.jpg',
+        width: 320,
+        height: 180
+      }
+    },
+    channelTitle: 'Veritasium',
+    resourceId: {
+      videoId: '9cNmUNHSBac'
+    }
+  },
+  {
+    publishedAt: '2021-11-17T01:36:24Z',
+    title: 'The Big Misconception About Electricity',
+    thumbnails: {
+      default: {
+        url: 'https://i.ytimg.com/vi/bHIhgxav9LY/default.jpg',
+        width: 120,
+        height: 90
+      },
+      medium: {
+        url: 'https://i.ytimg.com/vi/bHIhgxav9LY/mqdefault.jpg',
+        width: 320,
+        height: 180
+      }
+    },
+    channelTitle: 'Veritasium',
+    resourceId: {
+      videoId: 'bHIhgxav9LY'
+    }
+  },
+  {
     publishedAt: '2021-11-01T04:53:29Z',
     title: 'How Imaginary Numbers Were Invented',
     thumbnails: {
@@ -101,7 +161,7 @@ module.exports.veritasium = [
   },
   {
     publishedAt: '2021-09-02T05:32:51Z',
-    title: 'Scorpions Are Fluorescent?!',
+    title: 'Why All Scorpions Are Fluorescent',
     thumbnails: {
       default: {
         url: 'https://i.ytimg.com/vi/f-Nr2z5X7Rs/default.jpg',

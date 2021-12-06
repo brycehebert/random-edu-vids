@@ -1,5 +1,45 @@
 module.exports.smartereveryday = [
   {
+    publishedAt: '2021-12-01T06:08:12Z',
+    title: 'YouTube is Changing - Smarter Every Day 266',
+    thumbnails: {
+      default: {
+        url: 'https://i.ytimg.com/vi/ZVaUoyabjAg/default.jpg',
+        width: 120,
+        height: 90
+      },
+      medium: {
+        url: 'https://i.ytimg.com/vi/ZVaUoyabjAg/mqdefault.jpg',
+        width: 320,
+        height: 180
+      }
+    },
+    channelTitle: 'SmarterEveryDay',
+    resourceId: {
+      videoId: 'ZVaUoyabjAg'
+    }
+  },
+  {
+    publishedAt: '2021-11-16T02:09:35Z',
+    title: 'When you call the US Coast Guard - Smarter Every Day 265',
+    thumbnails: {
+      default: {
+        url: 'https://i.ytimg.com/vi/fU_pilTk624/default.jpg',
+        width: 120,
+        height: 90
+      },
+      medium: {
+        url: 'https://i.ytimg.com/vi/fU_pilTk624/mqdefault.jpg',
+        width: 320,
+        height: 180
+      }
+    },
+    channelTitle: 'SmarterEveryDay',
+    resourceId: {
+      videoId: 'fU_pilTk624'
+    }
+  },
+  {
     publishedAt: '2021-10-28T13:30:38Z',
     title: '1,074 MPH BASEBALL vs. 1 Gallon of Mayonnaise - Smarter Every Day 264',
     thumbnails: {
@@ -2681,7 +2721,7 @@ module.exports.smartereveryday = [
   },
   {
     publishedAt: '2015-04-01T06:07:15Z',
-    title: 'WE HAD A BABY!! - Smarter Every Day 132',
+    title: "What's it like to become a father? - Smarter Every Day 132",
     thumbnails: {
       default: {
         url: 'https://i.ytimg.com/vi/4aS45u_K_T8/default.jpg',
@@ -5617,26 +5657,6 @@ module.exports.smartereveryday = [
     channelTitle: 'SmarterEveryDay',
     resourceId: {
       videoId: 'goE5VmuNK7g'
-    }
-  },
-  {
-    publishedAt: '2011-03-11T15:10:11Z',
-    title: 'Wagon Cam 3000 - Take the camera with you.',
-    thumbnails: {
-      default: {
-        url: 'https://i.ytimg.com/vi/yLXyg-7gIPE/default.jpg',
-        width: 120,
-        height: 90
-      },
-      medium: {
-        url: 'https://i.ytimg.com/vi/yLXyg-7gIPE/mqdefault.jpg',
-        width: 320,
-        height: 180
-      }
-    },
-    channelTitle: 'SmarterEveryDay',
-    resourceId: {
-      videoId: 'yLXyg-7gIPE'
     }
   },
   {

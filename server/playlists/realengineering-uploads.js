@@ -1,5 +1,45 @@
 module.exports.realengineering = [
   {
+    publishedAt: '2021-11-27T15:47:43Z',
+    title: 'Will Supersonic Travel Ever Return?',
+    thumbnails: {
+      default: {
+        url: 'https://i.ytimg.com/vi/F0y8hV2kfJc/default.jpg',
+        width: 120,
+        height: 90
+      },
+      medium: {
+        url: 'https://i.ytimg.com/vi/F0y8hV2kfJc/mqdefault.jpg',
+        width: 320,
+        height: 180
+      }
+    },
+    channelTitle: 'Real Engineering',
+    resourceId: {
+      videoId: 'F0y8hV2kfJc'
+    }
+  },
+  {
+    publishedAt: '2021-11-20T08:32:10Z',
+    title: 'The Insane Engineering of the Thunderscreech',
+    thumbnails: {
+      default: {
+        url: 'https://i.ytimg.com/vi/GIGlQBx4tys/default.jpg',
+        width: 120,
+        height: 90
+      },
+      medium: {
+        url: 'https://i.ytimg.com/vi/GIGlQBx4tys/mqdefault.jpg',
+        width: 320,
+        height: 180
+      }
+    },
+    channelTitle: 'Real Engineering',
+    resourceId: {
+      videoId: 'GIGlQBx4tys'
+    }
+  },
+  {
     publishedAt: '2021-10-23T14:42:24Z',
     title: 'The Problem with Solar Energy in Africa',
     thumbnails: {

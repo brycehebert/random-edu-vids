@@ -1,6 +1,6 @@
 # random-edu-vids
 
-[Live Demo Site](https://random-edu-vids.herokuapp.com/)
+### [Live Demo Site](https://random-edu-vids.herokuapp.com/)
 
 Watch a random playlist of videos from Educational youtube channels.
 
